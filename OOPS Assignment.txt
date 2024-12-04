@@ -1,0 +1,269 @@
+
+class Mentor_info:
+    def __init__(self, id, name, Sub,age):
+        self.id=id
+        self.name=name
+        self.age=age
+        self.sub=Sub
+    def Ment_info(self):
+        return self.id, self.name, self.age, self.sub
+
+class Student_info(Mentor_info):
+    def __init__(self,id,name,age,sub, course, section):
+        self.course=course
+        self.section=section
+        super().__init__(id,name, age,sub )
+
+    def Stud_info(self):
+        return self.id, self.name,self.age,self.sub, self.course, self.section
+
+
+obj=Mentor_info(1,"john",28,"java")
+print(obj.Ment_info())
+
+obj2=Student_info("4sm16me020","Ravi",20,"java","full stack","Me-2")
+print(obj2.Stud_info())
+
+
+class User_id:
+    def id(self):
+        self.id=id
+    def show(self):
+        return self.id 
+
+class Password(User_id):
+    
+    try:
+        def __init__(self, id,Password, confirm_password):
+            self.Password= Password
+            self.confirm_password=confirm_password
+            super().__init__(id)    
+
+        def Password_validation(self):
+            self.Password==self.confirm_password 
+            
+            return "password matched !",self.id, self.Password, self.confirm_password
+    except:
+        print("password not matched !")    
+
+obj=Password("nandish@1234",2,2)
+print(obj.Password_validation())
+
+
+def methods(password, confirm_pass):
+    if password==confirm_pass:
+        return "password match !"
+    else:
+        print("password doesnt matchh")
+
+x=methods("1234","1234")
+print(x)            
+    
+
+class Variable:
+    def __init__(self,a,b):
+        self.a=a
+        self.b=b
+    def sum(self):
+        return self.a+self.b 
+class Rectangle(Variable):
+    def __init__(self,a,b):
+        super().__init__(a,b)    
+    def area(self):
+        return self.a*self.b
+
+
+obj=Rectangle(1,2)
+print(obj.area())      
+print(obj.sum())
+obj2=Variable(5,6)
+print(obj2.sum())
+
+
+class Add:
+    def __init__(self,a,b):
+        self.a=a
+        self.b=b
+    def add(self):
+        return self.a+self.b
+
+class Sub(Add):
+    def __init__(self, a, b):
+        super().__init__(a, b)
+    def sub(self):
+        return self.a-self.b
+
+class Mul(Sub):
+    def __init__(self, a, b):
+        super().__init__(a, b)
+    def mul(self):
+        return self.a*self.b
+
+
+obj=Mul(2,3)
+print(obj.mul())   
+print(obj.add())     
+print(obj.sub())                            
+
+class Student:
+    def __init__(self,id,name,branch,Class):
+        self.id=id
+        self.name=name
+        self.branch=branch
+        self.Class=Class
+
+    def Show_std_info(self):
+        print(self.id,self.name,self.branch,self.Class)
+
+
+class Teacher:
+    def __init__(self,id,name,age,Qualification):
+        self.id=id
+        self.name=name
+        self.age=age
+        self.Qualification=Qualification
+
+    def teacher_info(self):
+        print(self.id, self.name, self.age, self.Qualification)
+
+
+class College(Student,Teacher):
+    pass
+
+obj=College("4SM16ME020","Nandish","Mech","ME-01")
+obj2=College("SJM-ME-01","Madhu",40,"Mtech")
+
+obj.Show_std_info()
+obj2.teacher_info()
+
+
+
+i=Student("4SM16ME020","Nandish","Mech","ME-01")
+i.Show_std_info()
+
+j=Teacher("SJM-ME-01","Madhu",40,"Mtech")
+j.teacher_info()
+
+class Calculations:
+    def __init__(self):
+        self.l=10
+        self.b=20
+        self.r=30
+        self.pi=3.147
+        self.h=50
+    def area(self):
+        return self.l*self.b
+    def volume(self):
+        return 2*self.pi* self.r*self.r* self.h 
+
+obj=Calculations()
+print(obj.area())            
+print(obj.volume())
+
+class Cat:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+
+    def info(self):
+        print(f"i am cat . my name is {self.name} and age is {self.age}")
+
+    def make_sound(self):
+        print("meow !")        
+
+class Dog:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def info(self):
+        print(f"i am dog . my name is {self.name} and age is {self.age}")
+
+    def make_sound(self):
+        print("bark !")
+
+obj=Dog("puppy ", 3)
+obj2=Cat("kitty",1)  
+# obj.info()
+# obj.make_sound()
+# obj2.info()
+# obj2.make_sound()
+
+for animal in (obj,obj2):
+    animal.info()
+    animal.make_sound()
+
+
+class Girl:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+
+    def show(self):
+        print(f"my name is {self.name} and age is {self.age}")
+
+    def standard(self):
+        print("i am 7th standard !") 
+
+class Boy:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+
+    def show(self):
+        print(f"my name is {self.name} and age is {self.age}")
+    def standard(self):
+        print("i am 9th standard")
+
+girl=Girl("Lisa",12)                            
+boy=Boy("john",16)
+
+# girl.show()
+# girl.standard()
+# boy.show()
+# boy.standard()
+
+for ele in (girl,boy):
+    ele.show()
+    ele.standard()
+
+class Base:
+    def __init__(self):
+        self.a = "Hello world !"
+        self.__c = "Hello john "
+
+
+class Derived(Base):
+    def __init__(self):
+
+        # Calling constructor of
+        # Base class
+        Base.__init__(self)
+        print("Calling private member of base class: ")
+        print(self.__c)
+
+
+
+obj1 = Base()
+print(obj1.a)
+obj2=Derived()
+print(obj2)
+
+class Rectangle:
+    def __init__(self, l,b):
+        self.l=l
+        self.b=b
+    def area(self):
+        return self.l*self.b
+class Cuboid(Rectangle):
+    def __init__(self, l, b,h):
+        self.h=h
+        super().__init__(l,b)
+    def volume(self):
+        return self.l*self.b*self.h
+
+# c=Cuboid(10,20,5) 
+# print(c.volume())       
+# print(c.area())            
+
+r=Rectangle(10,2)
+print(r.area())
